@@ -19,18 +19,26 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎
+        uses: actions/checkout@v1
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          
+      # now let's see any changed files
       - name: See changed files 👀
         run: git status
+
+      # and commit and push them back to GH if any
+      # https://github.com/mikeal/publish-to-github-action
+      - name: Commit changed files 🆙
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build site 🏗
+        run: npm run build
