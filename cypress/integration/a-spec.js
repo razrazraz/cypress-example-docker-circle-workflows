@@ -6,7 +6,7 @@ describe('a-spec', () => {
 
     it('has h2', () => {
       cy.contains('h2', 'test')
-      cy.writeFile('cypress/fixtures/logs.txt', {flag: 'a+'})
+      cy.writeFile('cypress/fixtures/logs.txt','tt', {flag: 'a+'})
     })
   })
 })
