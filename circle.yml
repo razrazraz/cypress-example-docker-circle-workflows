@@ -27,7 +27,7 @@ jobs:
             - .cache
             - tmp
             
-  production: &production
+  production:
     working_directory: ~/tmp
     docker:
       - image: cypress/browsers:node10.16.0-chrome77
@@ -47,6 +47,7 @@ workflows:
   version: 2
   build_and_test:
     jobs:
+    - build
       - production:
           requires:
             - build
