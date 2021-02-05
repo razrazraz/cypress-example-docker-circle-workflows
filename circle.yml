@@ -1,18 +1,4 @@
-production: &production
-    working_directory: ~/tmp
-    docker:
-      - image: cypress/browsers:node10.16.0-chrome77
-        environment:
-          TERM: production
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: ls -la cypress
-      - run: ls -la cypress/integration
-      - run:
-          name: Running cypress tests
-          command: cypress run
-          
+
 jobs:
   build:
     working_directory: ~/tmp
@@ -40,6 +26,22 @@ jobs:
           paths:
             - .cache
             - tmp
+            
+  production: &production
+    working_directory: ~/tmp
+    docker:
+      - image: cypress/browsers:node10.16.0-chrome77
+        environment:
+          TERM: production
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: ls -la cypress
+      - run: ls -la cypress/integration
+      - run:
+          name: Running cypress tests
+          command: cypress run
+                      
 
 workflows:
   version: 2
