@@ -48,6 +48,6 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - testA:
+      - production:
           requires:
             - build
