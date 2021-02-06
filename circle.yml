@@ -40,7 +40,7 @@ jobs:
       - run:
           name: Running E2E tests A
           command: >-
-            $(npm bin)/cypress run --spec cypress/integration/a-spec.js
+            $(npm bin)/cypress run --spec cypress/integration/folderA/a-spec.js
             --reporter junit --reporter-options
             "mochaFile=results/my-test-output.xml"
       - store_test_results:
@@ -58,7 +58,7 @@ jobs:
       - run:
           name: Running E2E tests B
           command: >-
-            $(npm bin)/cypress run --spec cypress/integration/b-spec.js
+            $(npm bin)/cypress run --spec cypress/integration/folderB/b-spec.js
             --reporter junit --reporter-options
             "mochaFile=results/my-test-output.xml"
       - store_test_results:
