@@ -1,5 +1,4 @@
 version: 2
-
 # build job parameters as a template
 defaults: &defaults
   working_directory: ~/app
