@@ -54,7 +54,7 @@ jobs:
     
   folderA: 
            <<: *testA
-  accesss:
+  access:
            <<: *testA
 
 
