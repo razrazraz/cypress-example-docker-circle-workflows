@@ -82,14 +82,11 @@ jobs:
 
 workflows:
   version: 2
-  build_and_testA:
     jobs:
       - build
       - testA:
-
-  build_and_testB:
-    jobs:
-      - build
-      - folderA:
+          requires:
+            - build
+      - testB:
           requires:
             - build
