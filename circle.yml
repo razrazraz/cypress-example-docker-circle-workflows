@@ -29,7 +29,9 @@ jobs:
           paths:
             - .cache
             - app
-  testA:
+  folderA:
+    <<: *testA            
+  testA: &testA
     working_directory: ~/app
     docker: *ref_0
     steps:
@@ -40,7 +42,7 @@ jobs:
       - run:
           name: Running E2E tests A
           command: >-
-            $(npm bin)/cypress run --spec cypress/integration/folderA/a-spec.js
+            $(npm bin)/cypress run --spec cypress/integration/folderA/$CIRCLE_JOB/*
             --reporter junit --reporter-options
             "mochaFile=results/my-test-output.xml"
       - store_test_results:
