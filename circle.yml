@@ -49,7 +49,7 @@ defaults:
           path: cypress/screenshots
           
 jobs:
-  build:
+  build_development:
     working_directory: ~/app
     docker: *ref_0
     steps:
@@ -72,12 +72,7 @@ jobs:
           paths:
             - .cache
             - app
-    
-  folderA:
-           <<: *testA
-           <<: *testB
-  access:
-           <<: *testA
+
 
 
 workflows:
