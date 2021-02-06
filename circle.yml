@@ -73,8 +73,9 @@ jobs:
             - .cache
             - app
     
-  folderA: 
-           <<: *testA,*testB
+  folderA:
+           <<: *testA
+           <<: *testB
   access:
            <<: *testA
 
