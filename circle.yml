@@ -29,10 +29,8 @@ jobs:
           paths:
             - .cache
             - app
-    folderA:
-        <<:*ref_a
-    
-  testA: &ref_a
+    folderA: '<<:*ref_a'
+  testA:
     working_directory: ~/app
     docker: *ref_0
     steps:
