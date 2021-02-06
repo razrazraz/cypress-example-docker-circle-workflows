@@ -51,7 +51,8 @@ jobs:
           paths:
             - .cache
             - app
-    folderA: 
+    
+  folderA: 
            <<: *testA
 
   testB:
