@@ -72,12 +72,10 @@ workflows:
   build_and_test:
 
     jobs:
-      filters:
-      branches:
-      only:
-      - master
-      - build
       - testA:
+          filters:
+            branches:
+                only: - master
           requires:
             - build
       - testB:
