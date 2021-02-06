@@ -12,6 +12,10 @@ defaults: &defaults
 
 jobs:
   build:
+      filters:
+      branches:
+        only:
+          - master
     <<: *defaults
     steps:
       - checkout
