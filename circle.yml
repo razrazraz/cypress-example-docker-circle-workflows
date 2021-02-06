@@ -71,12 +71,12 @@ workflows:
   version: 2
   build_and_testA:
     jobs:
-      filters:
-      branches:
-        only:
-          - develop
       - build
       - testA:
+          filters:
+            branches:
+                 only:
+                    - develop
           requires:
             - build
   build_and_testB:
