@@ -70,11 +70,9 @@ jobs:
 workflows:
   version: 2
   build_and_test:
-            filters:
-            branches:
-                only: 
-                   - master
-
+    filters:
+      branches:
+         only: - master
     jobs:
       - testA:
 
