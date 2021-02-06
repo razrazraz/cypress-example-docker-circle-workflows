@@ -72,7 +72,7 @@ workflows:
   build_and_testA:
     jobs:
       - build
-      filters:
+          filters:
             branches:
                  only:
                     - develop
