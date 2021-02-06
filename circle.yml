@@ -29,9 +29,10 @@ jobs:
           paths:
             - .cache
             - app
-  folderA:
-    <<: *testA            
-  testA: &testA
+    folderA:
+        <<:*ref_a
+    
+  testA: &ref_a
     working_directory: ~/app
     docker: *ref_0
     steps:
@@ -73,8 +74,7 @@ workflows:
   version: 2
   build_and_testA:
     jobs:
-      - build
-      - testA:
+      - folderA:
           requires:
             - build
   build_and_testB:
