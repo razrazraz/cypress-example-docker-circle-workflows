@@ -5,7 +5,7 @@ defaults:
     - image: 'cypress/base:8'
       environment:
         TERM: xterm
-        
+
   testA: &testA
     working_directory: ~/app
     docker: *ref_0
@@ -47,7 +47,7 @@ defaults:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
-          
+
 jobs:
   build:
     working_directory: ~/app
@@ -72,12 +72,13 @@ jobs:
           paths:
             - .cache
             - app
-    
+
   folderA:
-           <<: *testA
-           <<: *testB
+
   access:
-           <<: *testA
+
+
+
 
 
 workflows:
@@ -96,5 +97,6 @@ workflows:
     jobs:
       - build
       - folderA:
+          <<: *testA        
           requires:
             - build
