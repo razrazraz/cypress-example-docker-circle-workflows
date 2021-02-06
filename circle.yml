@@ -49,7 +49,7 @@ defaults:
           path: cypress/screenshots
           
 jobs:
-  build_development:
+  build:
     working_directory: ~/app
     docker: *ref_0
     steps:
