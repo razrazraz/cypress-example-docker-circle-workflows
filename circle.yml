@@ -6,7 +6,7 @@ defaults:
       environment:
         TERM: xterm
         
-  testA: &ref_a
+  testA: &testA
     working_directory: ~/app
     docker: *ref_0
     steps:
@@ -52,7 +52,7 @@ jobs:
             - .cache
             - app
     folderA: 
-           <<: *ref_a
+           <<: *testA
 
   testB:
     working_directory: ~/app
