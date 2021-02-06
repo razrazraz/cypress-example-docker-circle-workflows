@@ -26,6 +26,27 @@ defaults:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+
+  testB: &testB
+    working_directory: ~/app
+    docker: *ref_0
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: ls -la cypress
+      - run: ls -la cypress/integration
+      - run:
+          name: Running E2E tests A
+          command: >-
+            $(npm bin)/cypress run --spec="cypress/integration/manager/$CIRCLE_JOB/*"
+            --reporter junit --reporter-options
+            "mochaFile=results/my-test-output.xml"
+      - store_test_results:
+          path: results
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
           
 jobs:
   build:
@@ -53,7 +74,7 @@ jobs:
             - app
     
   folderA: 
-           <<: *testA
+           <<: *testA,*testB
   access:
            <<: *testA
 
@@ -67,5 +88,12 @@ workflows:
           requires:
             - build
       - access:
+          requires:
+            - build
+
+  build_and_testB:
+    jobs:
+      - build
+      - folderA:
           requires:
             - build
