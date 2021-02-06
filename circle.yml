@@ -70,13 +70,14 @@ jobs:
 workflows:
   version: 2
   build_and_test:
-
-    jobs:
-      - testA:
-          filters:
+            filters:
             branches:
                 only: 
                    - master
+
+    jobs:
+      - testA:
+
           requires:
             - build
       - testB:
