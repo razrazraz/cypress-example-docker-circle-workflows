@@ -17,7 +17,7 @@ defaults:
       - run:
           name: Running E2E tests A
           command: >-
-            $(npm bin)/cypress run -- --spec 'cypress/integration/manager/folderA/*-spec.js'
+            $(npm bin)/cypress run --spec="cypress/integration/manager/$CIRCLE_JOB/*"
             --reporter junit --reporter-options
             "mochaFile=results/my-test-output.xml"
       - store_test_results:
