@@ -54,6 +54,9 @@ jobs:
     
   folderA: 
            <<: *testA
+  accesss:
+           <<: *testA
+
 
 workflows:
   version: 2
@@ -61,5 +64,8 @@ workflows:
     jobs:
       - build
       - folderA:
+          requires:
+            - build
+      - access:
           requires:
             - build
