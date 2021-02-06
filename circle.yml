@@ -73,7 +73,7 @@ workflows:
     filters:
       branches:
         only:
-          - master
+          - develop
     jobs:
       - build
       - testA:
