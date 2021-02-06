@@ -51,7 +51,8 @@ jobs:
           paths:
             - .cache
             - app
-    folderA: '<<:*ref_a'
+    folderA: 
+           <<: *ref_a
 
   testB:
     working_directory: ~/app
@@ -77,11 +78,5 @@ workflows:
     jobs:
       - build
       - folderA:
-          requires:
-            - build
-  build_and_testB:
-    jobs:
-      - build
-      - testB:
           requires:
             - build
