@@ -72,10 +72,6 @@ workflows:
   build_and_testA:
     jobs:
       - build
-          filters:
-            branches:
-                 only:
-                    - develop
       - testA:
           requires:
             - build
