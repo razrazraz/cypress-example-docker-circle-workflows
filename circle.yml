@@ -83,8 +83,6 @@ workflows:
   version: 2
   build_and_testB:
     jobs:
-      - build
       - folderA: 
-      testB: &testB
             requires:
             - build
