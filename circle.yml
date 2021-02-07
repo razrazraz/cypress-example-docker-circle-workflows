@@ -80,7 +80,7 @@ jobs:
   folderA:
     name: &env
       test: *testA
-    <<: [*env.test]
+    <<: [*env.test[0]]
    
        
 
