@@ -7,7 +7,7 @@ defaults:
         TERM: xterm
         
 name: &harry_name
-  testA: testA
+  testA: *testA
      
         
   testA:  &testA
