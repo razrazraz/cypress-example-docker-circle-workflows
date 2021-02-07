@@ -74,10 +74,9 @@ jobs:
             - app
     
   folderA:
-           <<: *testA
-           <<: *testB
+
   access:
-           <<: *testA
+       
 
 
 workflows:
@@ -85,16 +84,16 @@ workflows:
   build_and_testA:
     jobs:
       - build
-      - folderA:
+      - folderA:    <<: *testA
           requires:
             - build
-      - access:
+      - access:    <<: *testA
           requires:
             - build
 
   build_and_testB:
     jobs:
       - build
-      - folderA:
+      - folderA:    <<: *testA
           requires:
             - build
