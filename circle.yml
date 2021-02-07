@@ -6,7 +6,7 @@ defaults:
       environment:
         TERM: xterm
         
-  testA:  &testB
+  testA:  &testA
     working_directory: ~/app
     docker: *ref_0
     steps:
