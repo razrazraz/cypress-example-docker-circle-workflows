@@ -28,7 +28,7 @@ defaults:
       - store_artifacts:
           path: cypress/screenshots
           
-commands:
+
   testB:
     parameters:
       customer:
