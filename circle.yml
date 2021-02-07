@@ -74,7 +74,7 @@ jobs:
             - app
     
   folderA:
-     - build
+
   access:
        
 
@@ -86,4 +86,4 @@ workflows:
       - folderA
       - testA:
           requires:
-            - folderA
+            - build
