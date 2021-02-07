@@ -44,7 +44,7 @@ defaults:
       - run:
           name: Running E2E tests A
           command: >-
-            $(npm bin)/cypress run --spec="cypress/integration/manager/$CIRCLE_JOB/*"
+            $(npm bin)/cypress run --spec="cypress/integration/manager/<< parameters.NUM >>/*"
             --reporter junit --reporter-options
             "mochaFile=results/my-test-output.xml"
       - store_test_results:
@@ -79,13 +79,9 @@ jobs:
             - .cache
             - app
 
-  folderA:
-    <<: *testA
-    <<: *testB
-  access:
-    <<: *testA
 
- 
+
+
 
 
 workflows:
@@ -93,16 +89,10 @@ workflows:
   build_and_testA:
     jobs:
       - build
-      - folderA:
-          requires:
-            - build
-      - access:
+      - run-command:
+            NUM: "folderA"
+      - testA:
           requires:
             - build
 
-  build_and_testB:
-    jobs:
-      - build
-      - folderA:
-          requires:
-            - build
+
