@@ -4,11 +4,8 @@ defaults:
   docker: &ref_0
     - image: 'cypress/base:8'
       environment:
-        TERM: xterm
-        
- testA: &env
-     
-        
+        TERM: xterm       
+
   testA:  &testA
     working_directory: ~/app
     docker: *ref_0
@@ -76,10 +73,9 @@ jobs:
             - .cache
             - app
     
-  folderA:
-   
+  folderA: 
 
-    <<: *env
+    <<: *testA
    
        
 
