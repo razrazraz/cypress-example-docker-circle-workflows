@@ -79,7 +79,7 @@ jobs:
   folderA:
    
 
-    <<: [*env]
+    <<: *env
    
        
 
