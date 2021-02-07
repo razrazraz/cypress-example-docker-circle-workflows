@@ -6,8 +6,7 @@ defaults:
       environment:
         TERM: xterm
         
-name: &harry_name
-  testA: *testA
+ testA: &env
      
         
   testA:  &testA
@@ -78,7 +77,7 @@ jobs:
             - app
     
   folderA:
-    testA: &env
+   
 
     <<: [*env]
    
