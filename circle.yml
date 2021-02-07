@@ -78,7 +78,7 @@ jobs:
             - app
     
   folderA:
-    <<: [*harry_name]
+    <<: [*harry_name.name]
    
        
 
