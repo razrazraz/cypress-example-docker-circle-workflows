@@ -84,6 +84,6 @@ workflows:
   build_and_testB:
     jobs:
       -build
-      - folderA: 
+      - folderA
             requires:
             - build
