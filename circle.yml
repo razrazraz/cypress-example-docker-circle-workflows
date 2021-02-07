@@ -73,6 +73,12 @@ jobs:
             - .cache
             - app
 
+  folderA:
+
+  access:
+
+
+
 
 
 workflows:
@@ -91,6 +97,6 @@ workflows:
     jobs:
       - build
       - folderA:
-      - testA:
+              <<: *testA        
           requires:
             - build
