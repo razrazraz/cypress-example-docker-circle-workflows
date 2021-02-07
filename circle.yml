@@ -1,10 +1,5 @@
 version: 2
 
-commands:
-  run-command:
-    parameters:
-      NUM:
-        type: string
 defaults:
   working_directory: ~/app
   docker: &ref_0
@@ -32,8 +27,11 @@ defaults:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
-
+commands:
   testB: &testB
+    parameters:
+      customer:
+        type: string
     working_directory: ~/app
     docker: *ref_0
     steps:
@@ -44,7 +42,7 @@ defaults:
       - run:
           name: Running E2E tests A
           command: >-
-            $(npm bin)/cypress run --spec="cypress/integration/manager/<< parameters.NUM >>/*"
+            $(npm bin)/cypress run --spec="cypress/integration/manager/<< parameters.customer >>/*"
             --reporter junit --reporter-options
             "mochaFile=results/my-test-output.xml"
       - store_test_results:
@@ -80,16 +78,12 @@ jobs:
             - app
 
 
-
-
-
-
 workflows:
   version: 2
   build_and_testA:
     jobs:
       - build
-            NUM: "folderA"
-
+      - testA:
+             customer: 'folderA'
 
 
