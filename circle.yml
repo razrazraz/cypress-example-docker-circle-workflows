@@ -6,6 +6,10 @@ defaults:
       environment:
         TERM: xterm
         
+name: &harry_name
+  first_name: testA
+     
+        
   testA:  &testA
     working_directory: ~/app
     docker: *ref_0
@@ -74,8 +78,8 @@ jobs:
             - app
     
   folderA:
-    <<: *testA
-
+    <<: [*harry_name]
+   
        
 
 
@@ -85,6 +89,5 @@ workflows:
     jobs:
       - build
       - folderA:
-      - testA:
           requires:
             - build
