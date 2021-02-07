@@ -85,6 +85,6 @@ workflows:
     jobs:
       - build
       - folderA:
+                  - testA:
           requires:
-            - testA:
             - build
