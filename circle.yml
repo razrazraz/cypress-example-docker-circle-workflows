@@ -1,4 +1,10 @@
 version: 2
+
+commands:
+  run-command:
+    parameters:
+      NUM:
+        type: string
 defaults:
   working_directory: ~/app
   docker: &ref_0
@@ -74,11 +80,12 @@ jobs:
             - app
 
   folderA:
-
+    <<: *testA
+    <<: *testB
   access:
+    <<: *testA
 
-
-
+ 
 
 
 workflows:
@@ -97,6 +104,5 @@ workflows:
     jobs:
       - build
       - folderA:
-      - testA:
           requires:
             - build
