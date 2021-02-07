@@ -84,16 +84,8 @@ workflows:
   build_and_testA:
     jobs:
       - build
-      - folderA:    <<: *testA
-          requires:
-            - build
-      - access:    <<: *testA
+      - folderA:    
+      - testA:
           requires:
             - build
 
-  build_and_testB:
-    jobs:
-      - build
-      - folderA:    <<: *testA
-          requires:
-            - build
