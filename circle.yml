@@ -78,9 +78,9 @@ jobs:
             - app
     
   folderA:
-    name: &env
-      test: *testA
-    <<: [*env.test[0]]
+    testA: &env
+
+    <<: [*env]
    
        
 
