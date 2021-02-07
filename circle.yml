@@ -89,10 +89,10 @@ workflows:
   build_and_testA:
     jobs:
       - build
+      - testA:
       - run-command:
             NUM: "folderA"
-      - testA:
-          requires:
+        requires:
             - build
 
 
