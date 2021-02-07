@@ -30,9 +30,6 @@ defaults:
           
 
   testB:
-    parameters:
-      customer:
-        type: string
     working_directory: ~/app
     docker: *ref_0
     steps:
