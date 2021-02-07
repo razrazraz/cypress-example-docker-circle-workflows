@@ -6,7 +6,7 @@ defaults:
       environment:
         TERM: xterm
         
-  testA: &testA
+  testA:
     working_directory: ~/app
     docker: *ref_0
     steps:
@@ -85,6 +85,6 @@ workflows:
     jobs:
       - build
       - folderA:
-      - steps: << *testA
           requires:
+            - testA:
             - build
