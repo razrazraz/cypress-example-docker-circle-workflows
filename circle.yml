@@ -36,7 +36,7 @@ defaults:
       - run: ls -la cypress
       - run: ls -la cypress/integration
       - run:
-          name: Running E2E tests A
+          name: Running E2E tests B
           command: >-
             $(npm bin)/cypress run --spec="cypress/integration/manager/$CIRCLE_JOB/*"
             --reporter junit --reporter-options
