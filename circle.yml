@@ -75,7 +75,7 @@ jobs:
     
   folderA: 
     <<: *testA
-    <<: *testb
+    <<: *testB
    
        
 
