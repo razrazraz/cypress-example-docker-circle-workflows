@@ -74,8 +74,9 @@ jobs:
             - app
     
   folderA:    
-      - steps: 
-        - testA
+    parameters: # parameters are at the job level
+      customer:
+        type: string
        
 
 
