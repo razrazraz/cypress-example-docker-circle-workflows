@@ -78,7 +78,7 @@ jobs:
       customer:
         type: string
         default: mycompany
-   <<: *testA 
+  <<: *testA 
        
 
 
