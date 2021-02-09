@@ -79,7 +79,6 @@ jobs:
         type: string
         default: mycompany
   steps:
-    - checkout
     - *testA
 
            
