@@ -80,6 +80,7 @@ jobs:
         default: mycompany
     steps:
       - testA:
+      customer: << parameters.customer >>
        
 
 
