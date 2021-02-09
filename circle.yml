@@ -84,8 +84,9 @@ workflows:
   build_and_testA:
     jobs:
       - build
-      - folderA
-      - *testA
-          requires:
+      - folderA:
+        steps:
+              - *testA
+        requires:
             - build
          
