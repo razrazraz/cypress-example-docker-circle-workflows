@@ -79,7 +79,7 @@ jobs:
         type: string
         default: mycompany
     steps:
-          <<: *testA
+       - *testA
            
        
 
