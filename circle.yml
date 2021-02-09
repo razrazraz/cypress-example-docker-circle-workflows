@@ -75,7 +75,7 @@ jobs:
     
   folderA:    
       - steps: 
-        - testA:
+        - testA
        
 
 
