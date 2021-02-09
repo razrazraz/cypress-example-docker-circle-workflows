@@ -73,9 +73,8 @@ jobs:
             - .cache
             - app
     
-  folderA: 
-    <<: *testA
-    <<: *testB
+  folderA: &A
+
    
        
 
@@ -85,12 +84,7 @@ workflows:
   build_and_testA:
     jobs:
       - build
-      - folderA:
+      - *A
           requires:
             - build
-  build_and_testB:
-    jobs:
-      - build
-      - folderA:
-          requires:
-            - build            
+         
