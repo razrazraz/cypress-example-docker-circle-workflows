@@ -78,7 +78,8 @@ jobs:
       customer:
         type: string
         default: mycompany
-  <<: *testA 
+    steps:
+      - testA:
        
 
 
