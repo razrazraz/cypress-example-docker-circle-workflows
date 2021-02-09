@@ -79,8 +79,8 @@ jobs:
         type: string
         default: mycompany
     steps:
-      - testA:
-           customer: << parameters.customer >>
+          <<: *testA
+           
        
 
 
