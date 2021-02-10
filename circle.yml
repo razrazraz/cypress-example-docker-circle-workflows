@@ -1,4 +1,12 @@
 version: 2
+commands:
+  provision-k8s:
+    parameters:
+      customer:
+        type: string
+        default: mycompany
+        
+        
 defaults:
   working_directory: ~/app
   docker: &ref_0
@@ -74,13 +82,8 @@ jobs:
             - app
     
   folderA:
-    parameters: # parameters are at the job level
-      customer:
-        type: string
-        default: mycompany
-    steps:
-      - checkout
-      - run: <<:  *testA
+     <<: testA
+
           
 
 
