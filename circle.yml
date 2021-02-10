@@ -79,8 +79,9 @@ jobs:
         type: string
         default: mycompany
     steps:
-      - *testA  
-       
+      - checkout
+      - run: <<:  *testA
+          
 
 
 workflows:
