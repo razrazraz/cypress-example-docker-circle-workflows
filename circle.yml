@@ -74,11 +74,12 @@ jobs:
             - app
     
   folderA:
-      parameters: # parameters are at the job level
+    parameters: # parameters are at the job level
       customer:
         type: string
         default: mycompany
-        - *testA         
+    steps:
+      - *testA  
        
 
 
