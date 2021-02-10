@@ -82,6 +82,10 @@ jobs:
             - app
     
   folderA:
+      parameters: # parameters are at the job level
+      customer:
+        type: string
+        default: mycompany
       steps:
         - provision-k8s:
            <<: *testA
