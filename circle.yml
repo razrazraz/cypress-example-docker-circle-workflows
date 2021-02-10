@@ -82,7 +82,7 @@ jobs:
             - app
     
   folderA:
-     <<: testA
+     <<: *testA
 
           
 
