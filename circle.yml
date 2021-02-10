@@ -73,7 +73,11 @@ jobs:
             - .cache
             - app
     
-  folderA:    
+  folderA:
+      parameters: # parameters are at the job level
+      customer:
+        type: string
+        default: mycompany
         <<: *testA         
        
 
