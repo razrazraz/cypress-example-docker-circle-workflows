@@ -74,7 +74,6 @@ jobs:
             - app
     
   folderA:    
-     steps:
         - *testA
 
            
