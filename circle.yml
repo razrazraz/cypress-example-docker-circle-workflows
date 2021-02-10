@@ -85,10 +85,10 @@ jobs:
       parameters: # parameters are at the job level
       customer:
         type: string
-        default: mycompany
+        default: *testA
       steps:
         - provision-k8s:
-           <<: *testA
+           <<: << parameters.customer >>
 
           
 
